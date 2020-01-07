@@ -1,6 +1,6 @@
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
-*.
+
 *~
 *.sw[mnpcod]
 .tmp
@@ -17,7 +17,7 @@ $RECYCLE.BIN/
 log.txt
 npm-debug.log*
 
-/src/environments
+/src/envKey
 /.idea
 /.ionic
 /.sass-cache
