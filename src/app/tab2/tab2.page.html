@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logOff()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Carrinho de Compras
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Valor Total de Compra: $ {{valorCompra}}
+    </ion-list-header>
+    <ion-item *ngFor="let produto of produtosCart;let i = index">
+      <ion-avatar slot="start">
+        <img src="{{produto.image}}">
+      </ion-avatar>
+      <ion-button (click)="removeToArrayCart(i)" slot="end">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+      <ion-label>
+        <p>{{produto.nome}}</p>
+        <h3>$ {{produto.valor}}</h3>
+        <p>{{produto.descricaoCurta}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="RealizarCompra()" expand="block">Realizar Compra</ion-button>
+  </ion-toolbar>
+</ion-footer>

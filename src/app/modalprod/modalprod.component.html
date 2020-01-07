@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-title>Produto</ion-title>
+</ion-header>
+<ion-content>
+    <ion-card>
+
+        <img *ngIf="detalhesProduto.image" src="{{detalhesProduto.image}}" />
+        <img *ngIf="!detalhesProduto.image" src="{{detalhesProduto.image2}}" />
+
+        <ion-card-header>
+            <ion-card-subtitle> $ {{detalhesProduto.valor}}</ion-card-subtitle>
+            <ion-card-title>{{detalhesProduto.nome}}</ion-card-title>
+            <p>Data: {{detalhesProduto.data_divulgacao}}</p>
+            <p>Code: {{detalhesProduto.sku}}</p>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="ion-text-justify">
+                <p>{{detalhesProduto.descricao}}</p>
+
+            </div>
+
+        </ion-card-content>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4>
+                    <ion-button (click)="close()">
+                        <ion-icon name="arrow-back"></ion-icon>
+                        Voltar
+                    </ion-button>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-button (click)="popUpVerificarAddCart()">
+                        Adicionar Ao Carrinho
+                        <ion-icon name="cart"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>

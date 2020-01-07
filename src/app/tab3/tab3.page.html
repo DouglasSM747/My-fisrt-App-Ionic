@@ -1,0 +1,36 @@
+
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)= "logOff()" >
+          <ion-icon name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+       <ion-title>Pefil</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+    <ion-card class="image-card">
+      <ion-card-header>
+        <ion-card-title>Bem Vindo: {{name}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+   <ion-content>
+
+    <ion-list>
+      <ion-list-header>
+        Historico de Compras
+      </ion-list-header>
+
+      <ion-item color="primary" *ngFor="let nota of historicoCompras;let i = index">
+        <ion-buttons  slot="end">
+          <ion-button (click)="transformJsonInText(i)">
+            <ion-icon name="information-circle"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-label>
+          <h2>Valor: $ {{nota.valorNota}}</h2>
+          <h3>Quantidade de Produtos: {{nota.notasFiscais.length}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>

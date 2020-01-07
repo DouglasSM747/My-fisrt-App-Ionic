@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logOff()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Buscar Produtos
+    </ion-title>
+  </ion-toolbar>
+  <ion-footer>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="secondary">
+        <ion-button (click)="handleMsgProdValue()" type="submit" expand="block" type="submit">
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-searchbar  [(ngModel)]="title" animated cancelButtonText="Custom Cancel">
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-footer>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header *ngIf="produtos.total > 0">
+      Produtos encontrados: {{produtos.products.length}}
+    </ion-list-header>
+
+    <ion-item (click)="showModalProd(produto.sku)" *ngFor="let produto of produtos.products">
+      <ion-thumbnail>
+        <img src="{{produto.thumbnailImage}}">
+      </ion-thumbnail>
+      <ion-label>
+        <h6>Name: {{produto.name}}</h6>
+        <p>Codigo: {{produto.sku}}</p>
+        <p>Valor: {{produto.salePrice}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
